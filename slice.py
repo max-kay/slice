@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 def f(x, y):
     # The function to be used
-    c = 0
+    c = 1.2
     var = np.sqrt(x ** 2 + y ** 2 + c ** 2)
     return np.sin(var)/var
 
@@ -17,14 +17,14 @@ RANGE_X = (-20, 20)
 RANGE_Y = (-20, 20)
 ELLIPTICAL_MASK = True
 
-RESOLUTION = 200  # pixels for the whole x range
+RESOLUTION = 800  # pixels for the whole x range
 
 # projector
 ASPECT_RATIO = 4/3
 PRINTABLE_WIDTH = 0.5
 
 
-# If true removes all images in img folder before running
+# If true removes all files in img folder before running
 DELETE_PREVIOUS_FILES = False
 
 ####################################################################
@@ -72,6 +72,9 @@ def delete_all(folder):
         except Exception as e:
             print('Failed to delete %s. Reason: %s' % (file_path, e))
 
+
+if not os.path.exists("./img"):
+    os.makedirs("./img")
 
 if DELETE_PREVIOUS_FILES:
     delete_all('./img/')
